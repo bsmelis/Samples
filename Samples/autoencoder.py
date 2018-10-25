@@ -39,8 +39,9 @@ class AutoEncoder(object):
                 costs.append(c)
         plt.plot(costs)
         plt.show()
-#Test with MNIST dataset
-def getKaggleMNIST():
+        
+#################################################Test with MNIST dataset####################################
+def loadMNIST():
 
     train = pd.read_csv('train.csv').as_matrix().astype(np.float32)
     train = shuffle(train)
@@ -52,10 +53,10 @@ def getKaggleMNIST():
     Ytest  = train[-1000:,0].astype(np.int32)
     return Xtrain, Ytrain, Xtest, Ytest
 
-Xtrain, Ytrain, Xtest, Ytest = getKaggleMNIST()
+Xtrain, Ytrain, Xtest, Ytest = loadMNIST()
 Xtrain = Xtrain.astype(np.float32)
 Xtest = Xtest.astype(np.float32)
-_,D = Xtrain.shape
+Q,D = Xtrain.shape
 encod = AutoEncoder(D,300)
 init = tf.global_variables_initializer()
 with tf.Session() as sess:
