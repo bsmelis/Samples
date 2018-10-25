@@ -1,5 +1,5 @@
 function [overall,accuracy,error,classifiedrate] = thirdgcnn(xtrain,ytrain,xtest,V,nclass,classes)
-%xrain and xtest are data, ytrain onehotencoded (0.1,0.9) labels
+%xtrain and xtest are data, ytrain onehotencoded (0.1,0.9) labels
 %classes class information to calculate fmeasure
 %V calculated smoothing parameter
 %nclasses #ofclasses
